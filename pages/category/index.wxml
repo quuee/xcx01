@@ -1,0 +1,50 @@
+<view class="cates">
+    <!--搜索-->
+    <searchBar></searchBar>
+
+    <view class="cates_container">
+        <!--左侧菜单分类-->
+        <scroll-view scroll-y="true" class="left_menu">
+            <view class="menu_item {{index==currentIndex ? 'active':''}}" 
+            wx:for="{{leftMenuList}}" 
+            wx:for-item="menuItem" 
+            wx:key="id"
+            data-menuIndex="{{index}}"
+            bindtap="handleClickCategoryMenu"
+            >
+            {{menuItem.name}}
+            </view>
+        </scroll-view>
+
+        <!--右侧商品分类-->
+        <scroll-view scroll-y="true" class="right_content" scroll-top="{{scrollHeight}}">
+            <view class="label_list"
+                wx:for="{{rightGoodsMapList}}"
+                wx:key="key"
+                wx:for-index='key'
+                wx:for-item="goodsList"
+            >
+                <view class="label_title">{{key}}</view>
+                <view class="goods_list"
+                    wx:for="{{goodsList}}"
+                    wx:key="id"
+                    wx:for-item="goods"
+                >
+                <navigator 
+                    url="/pages/goods_indroduce/index?goodsId={{goods.id}}"
+                >
+                    <image mode="widthFix" src="{{baseUrl+'/images/'+goods.goodsImage}}"></image>
+                    <view class="goods_detail_right">
+                        <view class="detail_goods_name">{{goods.goodsName}}</view>
+                        <view class="detail_goods_price">￥：{{goods.price}}</view>
+                    </view>
+
+                </navigator>
+                
+                </view>
+            </view>
+            
+        </scroll-view>
+    </view>
+
+</view>

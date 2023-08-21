@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "searchBar":"/components/searchBar/searchBar"
+  },
+  "navigationBarTitleText": "Test小程序-首页",
+  "onReachBottomDistance": 120
+}

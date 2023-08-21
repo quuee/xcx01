@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/category/index",
+    "pages/shop_cart/index",
+    "pages/person/index",
+    "pages/search/index",
+    "pages/goods_indroduce/index",
+    "pages/pay/index",
+    "pages/auhtor/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Test小程序",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+      "color": "#999",
+      "selectedColor": "#FF5700",
+      "backgroundColor": "#fafafa",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icon/home.png",
+        "selectedIconPath": "assets/icon/selected_home.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "assets/icon/category.png"
+      },
+      {
+        "pagePath": "pages/shop_cart/index",
+        "text": "购物车",
+        "iconPath": "assets/icon/shop_car.png"
+      },
+      {
+        "pagePath": "pages/person/index",
+        "text": "我的",
+        "iconPath": "assets/icon/person.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": [
+      "chooseAddress"
+  ]
+}

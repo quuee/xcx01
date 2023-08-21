@@ -1,0 +1,13 @@
+<!--登录页 在点击加入购物车 点击购物车tarbar 我的tarbar时调起登录-->
+<view class="author_page">
+
+  <form bindsubmit="handleSubmit">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="handleChooseAvatar">
+      <image mode="widthFix" class="avatar" src="{{avatarUrl}}"></image>
+    </button>
+    <input type="nickname" name="nickName" class="weui-input" placeholder="点击使用微信昵称" value="{{nickname}}" />
+    <button type="primary" form-type="submit">保存登录</button>
+  </form>
+
+
+</view>

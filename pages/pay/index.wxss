@@ -1,0 +1,72 @@
+/* pages/pay/index.wxss */
+.pay_page {
+  padding: 20rpx;
+}
+.pay_page .user_reviceAddress_info_wrap {
+  border-bottom: 1px dotted gray;
+  padding: 20rpx;
+}
+.pay_page .user_reviceAddress_info_wrap .user_info {
+  margin-bottom: 10rpx;
+}
+.pay_page .user_reviceAddress_info_wrap .user_info_detail {
+  font-size: 30px;
+  font-weight: bolder;
+}
+.pay_page .goods_list {
+  display: flex;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid gray;
+  padding: 10rpx;
+}
+.pay_page .goods_list image {
+  flex: 2;
+}
+.pay_page .goods_list .goods_text_info {
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pay_page .goods_list .goods_text_info .goods_price_num_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.pay_page .order_info_wrap {
+  margin-bottom: 100rpx;
+}
+.pay_page .order_info_wrap .order_info {
+  display: flex;
+  margin: 10rpx 0 10rpx 0;
+  border: 1px solid gray;
+  height: 80rpx;
+  align-items: center;
+}
+.pay_page .order_info_wrap .delivery_choose picker {
+  width: 100%;
+}
+.pay_page .bottom_pay_btn_wrap {
+  position: fixed;
+  right: 10rpx;
+  bottom: 0rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: honeydew;
+  height: 100rpx;
+}
+.pay_page .bottom_pay_btn_wrap .sum_money {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.pay_page .bottom_pay_btn_wrap button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

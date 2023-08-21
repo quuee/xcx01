@@ -1,0 +1,45 @@
+<view>
+    <!--搜索-->
+    <searchBar></searchBar>
+    <!--轮播图-->
+    <view class="index_swiper">
+        <swiper autoplay indicator-dots>
+            <swiper-item wx:for="{{swiperList}}" wx:for-item="swiperItem" wx:key="id">
+                <navigator>
+                    <image mode="widthFix" src="{{baseUrl+'/images/'+swiperItem.url}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 分类 -->
+    <view class="index_category">
+        <navigator 
+            bindtap="handleJumpCategoryBar" data-menuIndex="{{index}}" data-menuId="{{categoryItem.id}}"
+            wx:for="{{indexCategoryList}}" wx:for-item="categoryItem" wx:key="id">
+            <image mode="widthFix" src="{{baseUrl+'/images/'+categoryItem.imageUrl}}">
+            </image>
+            <p>{{categoryItem.name}}</p>
+        </navigator>
+    </view>
+
+    <!--热门-->
+    <view class="index_hot_goods">
+        <view class="index_hot_title">热门</view>
+        <view class="index_hot_goods_list">
+            <view class="hot_goods_combine"
+            wx:for="{{indexHotGoodsPageList}}"
+            wx:for-item="hotGoodsItem"
+            wx:key="id"
+            >
+                <navigator url="/pages/goods_indroduce/index?goodsId={{hotGoodsItem.id}}">
+                    <image mode="widthFix" src="{{baseUrl+'/images/'+hotGoodsItem.goodsImage}}"></image>
+                    <view class="hot_goods_name">{{hotGoodsItem.goodsName}}</view>
+                    <view class="hot_goods_price">￥：{{hotGoodsItem.price}}</view>
+                    <button size="mini" type="warn">查看</button>
+                
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>

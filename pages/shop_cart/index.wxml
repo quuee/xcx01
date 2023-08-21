@@ -1,0 +1,89 @@
+<view class="shop_cart_page">
+    <!--用户收件地址-->
+    <view class="revice_address_row">
+        <view class="revice_address_btn" wx:if="{{!reviceAddress}}">
+            <button type="warn" plain bindtap="handleGetReviceAddress">收获地址</button>
+        </view>
+
+
+        <view class="user_address_info_row" wx:else>
+            <view class="user_address_info">
+                <view>收货人：{{reviceAddress.userName}},{{reviceAddress.telNumber}}</view>
+                <view>{{reviceAddress.provinceName+reviceAddress.cityName+reviceAddress.countyName+reviceAddress.detailInfo}}</view>
+            </view>
+            <view class="user_address_change_btn">
+                <button size="mini" plain type="primary" bindtap="handleGetReviceAddress">更改地址</button>
+            </view>
+        </view>
+    </view>
+
+    <!--购物车商品列表-->
+    <view class="cart_main">
+        <block wx:if="{{cart.length>0}}">
+            <view class="cart_item_list {{item.isTouchMove?'touch_move_active':''}}" data-index="{{index}}" bind:touchstart="handleItemTouchStart" bind:touchmove="handleItemTouchMove" wx:for="{{cart}}" wx:for-item="item" wx:key="id">
+                <!--内容-->
+                <view class="item_content">
+                    <!--复选框-->
+                    <view class="cart_check_wrap">
+                        <checkbox-group data-itemid="{{item.id}}" bindchange="handleItemChange">
+                            <checkbox checked="{{item.checked}}"></checkbox>
+                        </checkbox-group>
+                    </view>
+                    <!--商品图片-->
+                    <navigator url="/pages/goods_indroduce/index?goodsId={{item.id}}" class="cart_goods_image_wrap">
+                        <image mode="widthFix" src="{{baseUrl+'/images/'+item.goodsImage}}"></image>
+                    </navigator>
+                    <!--商品文字信息-->
+                    <view class="cart_goods_text_info">
+                        <navigator url="/pages/goods_indroduce/index?goodsId={{item.id}}">
+                            <view class="goods_name">{{item.goodsName}}</view>
+                        </navigator>
+                        <view class="goods_price_num_info">
+                            <view class="goods_price">￥：{{item.price}}</view>
+                            <view class="goods_num_wrap">
+                                <!--减-->
+                                <view class="num_edit" bind:tap="handleItemNumEdit" data-itemid="{{item.id}}" data-operation="{{-1}}">-</view>
+                                <view class="goods_num">{{item.num}}</view>
+                                <!--加-->
+                                <view class="num_edit" bind:tap="handleItemNumEdit" data-itemid="{{item.id}}" data-operation="{{1}}">+</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!--左滑删除-->
+                <view class="item_del" catch:tap="handleItemDel" data-index="{{index}}">删除</view>
+            </view>
+        </block>
+        <block wx:else="">
+            <image mode="widthFix" src="../../assets/cart_empty.png"></image>
+        </block>
+
+
+    </view>
+
+
+    <!--底部工具栏-->
+    <view class="cart_footer_tool">
+
+        <!--全选-->
+        <view class="cart_all_check_wrap">
+            <checkbox-group bindchange="handleAllCheckChange">
+                <checkbox checked="{{allChecked}}"><text decode="true">&nbsp;&nbsp;全选</text></checkbox>
+            </checkbox-group>
+        </view>
+
+        <!--优惠 不涉入了-->
+        <!--合计-->
+        <view class="cart_sum_money_wrap">
+            <view class="sum_money">
+                合计￥：<text>{{sumMoney}}</text>
+            </view>
+        </view>
+
+        <!--结算-->
+        <view class="cart_pay_wrap" bind:tap="handleToBuy">
+            结算({{sumNum}})
+        </view>
+
+    </view>
+</view>
