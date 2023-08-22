@@ -7,7 +7,8 @@
     "pages/search/index",
     "pages/goods_indroduce/index",
     "pages/pay/index",
-    "pages/auhtor/index"
+    "pages/auhtor/index",
+    "pages/order/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

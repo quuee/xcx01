@@ -50,7 +50,6 @@ class touch {
     })
     return items
   }
-
 }
 
 export default touch

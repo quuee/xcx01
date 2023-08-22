@@ -49,8 +49,7 @@ Page({
       return
     }
     //获取code并登录
-    let res = await wxLogin({ jsCode: res.code, nickName: nickname, avatarUrl: avatarUrl }) 
-    wx.setStorageSync('token', result.data.data)
+    let res = await wxLogin({ nickName: nickname, avatarUrl: avatarUrl }) 
     wx.switchTab({
       url: "/pages/index/index"
     })

@@ -1,10 +1,7 @@
 const baseUrl = "http://192.168.2.11:8080";
 const loginPage = "/pages/author/index"
-const reLoginUrl = "/user/reLogin"
 const loginUrl = "/user/login"
 
-const expired_code = 493 //为token过期状态需要重新获取token
-const unlogin_code = 401 //为用户未登陆状态，需要走登录逻辑
 
 //微信登录————code
 function wxLogin (param={}) {
@@ -16,17 +13,17 @@ function wxLogin (param={}) {
         wx.request({
           url: baseUrl+loginUrl,
           data: { jsCode: res1.code, ...param },
-          method: "GET",
+          method: "POST",
           header: { 'Content-Type': 'application/json' },
           success: function (res) {
             console.log("wxLogin",res)
             switch (res.statusCode) {//（根据实际情况判断）
               case 200:
-                wx.setStorageSync('access_token', res.data.data);//把token存储在本地
-                resolve({ status: 200 });
+                wx.setStorageSync('token', res.data.token);//把token存储在本地
+                resolve(res);
                 break;
               default:
-                resolve({ status: res.statusCode });
+                resolve(res);
             }
           },
           fail: function (err) {
@@ -53,10 +50,9 @@ function refreshToken (params, method, content_type, resolve) {
     isRefreshing = true;
     wxLogin().then(res => {
       console.log("refreshToken",res)
-      switch (res.status) {//（根据实际情况判断）
-        case 200:
-          // 重新请求队列
-          requestArr.map(MT => { MT(); });
+      switch (res.code) {//（根据实际情况判断）
+        case 0:
+          requestArr.map(MT => { MT(); });// 重新请求队列
           requestArr = [];//清空队列
           break;
         default:
@@ -80,17 +76,27 @@ function httpRequest (params, method, content_type = 'application/json') {
       header: { 'content-Type': content_type, 'Authorization': token, },
       success: (res) => {
         console.log("httpRequest",res)
-        switch (res.statusCode) {//（根据实际情况判断）
-          case 200:
-            resolve(res.data);
-            break;
-          case 401://token过期，刷新token（根据实际情况判断）
-            refreshToken(params, method, content_type, resolve);
-            break;
-          default:
-            wx.showToast({ title: "系统繁忙！", icon: 'error' });
-            reject();
+        // debugger
+        if(res.statusCode>=200 && res.statusCode<=300){
+          switch (res.data.code) {//（根据业务code）
+            case 0:
+              resolve(res);
+              break;
+            case 401: //直接跳转到登录页
+              wx.removeStorageSync('token')
+              wx.redirectTo({
+                url: loginPage,
+              })
+              return
+            case 493://token过期，刷新token（根据实际情况判断）
+              refreshToken(params, method, content_type, resolve);
+              break;
+            default:
+              wx.showToast({ title: "系统繁忙！", icon: 'error' });
+              reject();
+          }
         }
+        
       },
       fail: function (err) {
         wx.showToast({ title: "系统繁忙！", icon: 'error' });

@@ -1,6 +1,6 @@
 // pages/pay/index.js
 import { constReviceAddress,constCart } from '../../utils/commonConst.js'
-import { http, baseUrl } from "../../utils/HttpRequestUtil"
+import { postAction, baseUrl } from "../../utils/HttpUtil"
 Page({
 
   /**
@@ -47,6 +47,7 @@ Page({
   },
 
   async handleCreateOrder(){
+    // debugger
     let goodsList = this.data.checkedGoodsList.map(g=>{
       return  {
         goodsId:g.id,
@@ -62,13 +63,29 @@ Page({
       goodsList:goodsList
     }
     // console.log("orderParam",orderParam)
-    const [result,err] = await http({
+    const [result,err] = await postAction({
       url:"/order/create",
       data:orderParam,
-      method:'POST',
-    }).then((result)=>[result,null])
+    })
+    .then((result)=>[result,null])
     .catch(err=>[null,err])
-    console.log("result",result,"err",err)
+    if(result.data.code == 0){
+      //支付成功
+      //删除购物车中已下单商品
+      const cart = wx.getStorageSync(constCart)||[];
+      let lastCart = cart.filter(g=>!g.checked)
+      wx.setStorageSync(constCart, lastCart)
+      //跳转到订单页
+      wx.navigateTo({
+        url: '/pages/order/index',
+      })
+    }else{
+      wx.showToast({
+        title: "下单失败，请稍后再试",
+        icon: "none"
+      })
+    }
+    
   },
 
   /**

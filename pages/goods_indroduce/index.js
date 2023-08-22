@@ -1,4 +1,4 @@
-import { http, baseUrl } from "../../utils/HttpRequestUtil"
+import { baseUrl,getAction } from "../../utils/HttpUtil"
 import { constReviceAddress,constCart } from '../../utils/commonConst.js'
 Page({
 
@@ -25,9 +25,8 @@ Page({
 
   /** 获取商品详情 */
   async goodsDetailIntroduce(goodsId){
-    const [result,err] = await http({
+    const [result,err] = await getAction({
         url:'/goods/detailIntroduce',
-        method:'GET',
         data:{goodsId}})
     .then((result)=>[result,null])
     .catch(err=>[null,err])

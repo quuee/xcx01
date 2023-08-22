@@ -1,4 +1,4 @@
-.author_page{
+.author_page {
   height: 100%;
   width: 100%;
   display: flex;

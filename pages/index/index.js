@@ -1,5 +1,6 @@
 // import { requestUtil,baseUrl } from '../../utils/requestUtil.js'
-import {http,baseUrl} from "../../utils/HttpRequestUtil"
+// import {http,baseUrl} from "../../utils/HttpRequestUtil"
+import {getAction,baseUrl} from "../../utils/HttpUtil"
 
 Page({
 
@@ -7,12 +8,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-      pageNo:1,
-      pageSize:2,
+      
       baseUrl:"",
       swiperList:[],
       indexCategoryList:[],
       indexHotGoodsPageList:[],
+  },
+
+  queryParam:{
+    pageNo:1,
+    pageSize:2,
   },
 
   /**
@@ -29,14 +34,14 @@ Page({
       this.setData({baseUrl:baseUrl})
       this.getSwiperList(),
       this.getIndexCategoryList(),
-      this.getIndexHotGoodsList(this.data.pageNo)
+      this.getIndexHotGoodsList(this.queryParam.pageNo)
     }
 
   },
 
   async getSwiperList(){
 
-    const [result,err] = await http({url:'/swiper/list',method:'GET'})
+    const [result,err] = await getAction({url:'/swiper/list'})
     .then((result)=>[result,null])
     .catch(err=>[null,err])
 
@@ -47,7 +52,7 @@ Page({
   },
 
   async getIndexCategoryList(){
-    const [result,err] = await http({url:'/category/indexList',method:'GET'})
+    const [result,err] = await getAction({url:'/category/indexList'})
     .then((result)=>[result,null])
     .catch(err=>[null,err])
     this.setData({
@@ -56,15 +61,14 @@ Page({
   },
 
   async getIndexHotGoodsList(pageNo){
-    const [result,err] = await http({
+    const [result,err] = await getAction({
         url:'/goods/indexHotList',
-        method:'GET',
-        data:{pageNo:pageNo,PageSize:this.data.pageSize}})
+        data:{pageNo:pageNo,PageSize:this.queryParam.pageSize}})
     .then((result)=>[result,null])
     .catch(err=>[null,err])
     console.log("getIndexHotGoodsList",result)
     this.setData({
-        pageNo:this.data.pageNo+1,
+        pageNo:this.queryParam.pageNo+1,
         indexHotGoodsPageList:[...this.data.indexHotGoodsPageList,...result.data.data.list]
     })
   },
@@ -122,7 +126,7 @@ Page({
    */
   onReachBottom: function () {
     console.log('页面上拉触底事件的处理函数')
-    this.getIndexHotGoodsList(this.data.pageNo)
+    this.getIndexHotGoodsList(this.queryParam.pageNo)
   },
 
   /**

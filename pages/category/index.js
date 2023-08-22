@@ -1,4 +1,5 @@
-import { http, baseUrl } from "../../utils/HttpRequestUtil"
+// import { http, baseUrl } from "../../utils/HttpRequestUtil"
+import { baseUrl,getAction } from "../../utils/HttpUtil"
 
 Page({
 
@@ -23,9 +24,7 @@ Page({
   },
 
   async categoryPageList(){
-    const [result,err] = await http({
-        url:'/category/categoryPageList',
-        method:'GET'})
+    const [result,err] = await getAction({url:'/category/categoryPageList'})
     .then((result)=>[result,null])
     .catch(err=>[null,err])
     this.setData({
@@ -34,9 +33,8 @@ Page({
   },
 
   async goodsByCategoryGroupByLabel(categoryId=1){
-    const [result,err] = await http({
+    const [result,err] = await getAction({
         url:'/goods/byCategoryGroupByLabel',
-        method:'GET',
         data:{categoryId:categoryId}})
     .then((result)=>[result,null])
     .catch(err=>[null,err])

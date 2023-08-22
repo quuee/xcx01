@@ -1,0 +1,12 @@
+<block wx:if="{{orderStatus == 0}}">
+  <text>无</text>
+</block>
+<block wx:if="{{orderStatus == 1}}">
+  <text>待支付</text>
+</block>
+<block wx:if="{{orderStatus == 2}}">
+  <text>待收货</text>
+</block>
+<block wx:if="{{orderStatus == 3}}">
+  <text>售后</text>
+</block>
