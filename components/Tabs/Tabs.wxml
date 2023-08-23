@@ -1,0 +1,11 @@
+<!-- tab标题 -->
+<view class="order_tab_wrap" >
+  <view wx:for="{{tabs}}" wx:key="type" wx:for-item="tab" data-tabType="{{tab.type}}" bind:tap="handleTabTap" class="title_item {{tab.isActive?'active':''}}">
+    {{tab.typeName}}
+  </view>
+</view>
+
+<!--tab内容-->
+<view class="tab_content_wrap">
+  <slot></slot>
+</view>

@@ -1,203 +1,203 @@
 .shop_cart_page {
-    .revice_address_row {
-        .revice_address_btn {
-            padding: 15rpx;
+  .revice_address_row {
+    .revice_address_btn {
+      padding: 15rpx;
 
-            button {
-                width: 60%;
-            }
-        }
-
-        .user_address_info_row {
-            display: flex;
-            padding: 15rpx;
-
-            .user_address_info {
-                flex: 5;
-            }
-
-            .user_address_change_btn {
-                flex: 3;
-                text-align: right;
-
-                button {
-                    border: 1rpx solid gray;
-                    font-weight: normal;
-                }
-            }
-        }
+      button {
+        width: 60%;
+      }
     }
 
-    .cart_main {
-        background-color: #f5f5f5;
-        padding: 2rpx 10rpx 100rpx 10rpx; //底部工具栏占了90rpx，加上这90rpx
-        
-        .cart_item_list {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            overflow: hidden;
+    .user_address_info_row {
+      display: flex;
+      padding: 15rpx;
 
-            .item_content {
-                width: 100%;
-                display: flex;
-                margin: 20rpx;
-                background-color: white;
-                border-radius: 20rpx;
-                //滑动
-                -webkit-transition: all 0.4s;
-                transition: all 0.4s;
-                -webkit-transform: translateX(180rpx);
-                transform: translateX(180rpx);
-                margin-left: -180rpx;
+      .user_address_info {
+        flex: 5;
+      }
 
-                .cart_check_wrap {
-                    flex: 1;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 15rpx;
-                }
+      .user_address_change_btn {
+        flex: 3;
+        text-align: right;
 
-                .cart_goods_image_wrap {
-                    flex: 2;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #f5f5f5;
-                    margin: 20rpx;
-                    border-radius: 20rpx;
-
-                    image {
-                        width: 80%;
-                        height: auto;
-                    }
-                }
-
-                .cart_goods_text_info {
-                    flex: 4;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-around;
-
-                    .goods_name {
-                        font-weight: bolder;
-                        // 2行
-                        display: --webkit-box;
-                        overflow: hidden;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
-                    }
-
-                    .goods_price_num_info {
-                        display: flex;
-                        justify-content: space-between;
-
-                        .goods_price {
-                            color: var(--themeColor);
-                            font-size: 34rpx;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
-
-                        .goods_num_wrap {
-                            display: flex;
-                            font-weight: bolder;
-
-                            .num_edit {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                width: 55rpx;
-                                height: 85rpx;
-                            }
-
-                            .goods_num {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                width: 85rpx;
-                                height: 85rpx;
-                                background-color: #f5f5f5;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .item_del {
-                background-color: orangered;
-                width: 180rpx;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                -webkit-transform: translateX(180rpx);
-                transform: translateX(180rpx);
-                -webkit-transition: all 0.4s;
-                transition: all 0.4s;
-            }
+        button {
+          border: 1rpx solid gray;
+          font-weight: normal;
         }
-
-        .touch_move_active {
-            .item_content {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-
-            .item_del {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-        }
+      }
     }
+  }
 
-    .cart_footer_tool {
-        display: flex;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 90rpx;
+  .cart_main {
+    background-color: #f5f5f5;
+    padding: 2rpx 10rpx 100rpx 10rpx; //底部工具栏占了90rpx，加上这90rpx
+
+    .cart_item_list {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      overflow: hidden;
+
+      .item_content {
         width: 100%;
-        background-color: #fff;
-        border-top: 1rpx solid #CCC;
+        display: flex;
+        margin: 20rpx;
+        background-color: white;
+        border-radius: 20rpx;
+        //滑动
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        -webkit-transform: translateX(180rpx);
+        transform: translateX(180rpx);
+        margin-left: -180rpx;
 
-        .cart_all_check_wrap {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-left: 25rpx;
+        .cart_check_wrap {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 15rpx;
         }
 
-        .cart_sum_money_wrap {
-            flex: 5;
+        .cart_goods_image_wrap {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #f5f5f5;
+          margin: 20rpx;
+          border-radius: 20rpx;
+
+          image {
+            width: 80%;
+            height: auto;
+          }
+        }
+
+        .cart_goods_text_info {
+          flex: 4;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          .goods_name {
+            font-weight: bolder;
+            // 2行
+            display: --webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+
+          .goods_price_num_info {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
 
-            .sum_money text {
-                color: var(--themeColor);
-                font-weight: 600;
-                font-size: 34rpx;
-
+            .goods_price {
+              color: var(--themeColor);
+              font-size: 34rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
-        }
 
-        .cart_pay_wrap {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(90deg, #ff740b, #fe6627);
-            font-weight: 600;
-            font-size: 32rpx;
-            color: #fff;
-            border-radius: 20px;
-            margin: 10rpx;
+            .goods_num_wrap {
+              display: flex;
+              font-weight: bolder;
+
+              .num_edit {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 55rpx;
+                height: 85rpx;
+              }
+
+              .goods_num {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 85rpx;
+                height: 85rpx;
+                background-color: #f5f5f5;
+              }
+            }
+          }
         }
+      }
+
+      .item_del {
+        background-color: orangered;
+        width: 180rpx;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        -webkit-transform: translateX(180rpx);
+        transform: translateX(180rpx);
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
     }
+
+    .touch_move_active {
+      .item_content {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+
+      .item_del {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .cart_footer_tool {
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 90rpx;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1rpx solid #CCC;
+
+    .cart_all_check_wrap {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 25rpx;
+    }
+
+    .cart_sum_money_wrap {
+      flex: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .sum_money text {
+        color: var(--themeColor);
+        font-weight: 600;
+        font-size: 34rpx;
+
+      }
+    }
+
+    .cart_pay_wrap {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(90deg, #ff740b, #fe6627);
+      font-weight: 600;
+      font-size: 32rpx;
+      color: #fff;
+      border-radius: 20px;
+      margin: 10rpx;
+    }
+  }
 
 }

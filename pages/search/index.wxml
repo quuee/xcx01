@@ -1,4 +1,32 @@
-<view>
-搜索
-<text class="iconfont icon-hongbao"></text>
+<view class="search_row">
+  <view class="search_input_row">
+    <icon type="search" size="16" />
+    <input type="text" model:value="{{inputSearchWord}}" placeholder="请输入关键字" bindinput="handleSearchInput" bindconfirm="handleConfirm" />
+    <!--自动联想搜索词-->
+    <scroll-view class="search_word_scroll_view" wx:if="{{viewShowed}}" scroll-y>
+      <view wx:for="{{wordList}}" wx:key="index" wx:for-item="word">
+        <view class="word-item" bind:tap="handleChooseWord" data-index="{{index}}">
+          {{word}}
+        </view>
+      </view>
+    </scroll-view>
+    <!--查询历史-->
+  </view>
+  <button hidden="{{isFocus}}" bind:tap="handleCancelInput">取消</button>
+</view>
+
+<view class="search_content">
+  <scroll-view class="goods_list_scroll" wx:for="{{goodsList}}" wx:for-item="item" wx:key="id" scroll-y>
+    <view class="goods_list">
+      <image mode="widthFix" src="{{baseUrl+'/images/'+item.goodsImage}}"></image>
+      <view class="goods_text_info">
+        <view class="goods_name">{{item.goodsName}}</view>
+        <view class="goods_price_num_wrap">
+          <view class="goods_price">￥：{{item.price}}</view>
+          <view class="goods_num">销量：{{item.saleNum}}</view>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
 </view>

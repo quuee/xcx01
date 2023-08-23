@@ -28,7 +28,7 @@ Page({
         isActive: false
       },
     ],
-    orderList:[]
+    orderList: []
   },
 
   queryParam: {
@@ -42,10 +42,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // const {type} = options
+    console.log(options)
     this.setData({
       baseUrl
     })
-    this.getOderList(0)
+    this.changeTabActive(options.type)
+    this.getOderList(options.type)
   },
 
   /**
@@ -62,8 +65,16 @@ Page({
 
   },
 
-  handleTabTap(e) {
-    const { tabtype } = e.currentTarget.dataset;
+  handleTabItemChange(e) {
+    console.log("handleTabItemChange", e)
+    const { tabtype } = e.detail
+    this.changeTabActive(tabtype)
+
+    //切换tab 查询数据
+    this.getOderList(tabtype)
+  },
+
+  changeTabActive(tabtype){
     let tempTabs = this.data.tabs.map((t) => {
       if (t.type == tabtype) {
         return { ...t, isActive: true }
@@ -74,18 +85,15 @@ Page({
     this.setData({
       tabs: tempTabs
     })
-
-    //切换tab 查询数据
-    this.getOderList(tabtype)
   },
 
-  async getOderList(tabtype) {
-    const [result,err] = await getAction({ url: "/order/pageList", data: { ...this.queryParam, orderType: tabtype } })
+  async getOderList(tabtype = 0) {
+    const [result, err] = await getAction({ url: "/order/pageList", data: { ...this.queryParam, orderType: tabtype } })
       .then((result) => [result, null])
       .catch(err => [null, err])
-    console.log("getOderList", result)
+    // console.log("getOderList", result)
     this.setData({
-      orderList:result.data.data
+      orderList: result.data.data
     })
   },
 

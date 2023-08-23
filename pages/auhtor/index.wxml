@@ -6,7 +6,7 @@
       <image mode="widthFix" class="avatar" src="{{avatarUrl}}"></image>
     </button>
     <input type="nickname" name="nickName" class="weui-input" placeholder="点击使用微信昵称" value="{{nickname}}" />
-    <button type="primary" form-type="submit">保存登录</button>
+    <button class="" type="primary" form-type="submit">保存登录</button>
   </form>
 
 

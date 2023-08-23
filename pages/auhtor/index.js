@@ -38,8 +38,6 @@ Page({
   },
 
   async handleSubmit(e) {
-
-
     const nickname = e.detail.value.nickName
     const { avatarUrl } = this.data
     if (nickname == "" || nickname == undefined) {
@@ -49,7 +47,7 @@ Page({
       return
     }
     //获取code并登录
-    let res = await wxLogin({ nickName: nickname, avatarUrl: avatarUrl }) 
+    await wxLogin({ nickName: nickname, avatarUrl: avatarUrl }) 
     wx.switchTab({
       url: "/pages/index/index"
     })

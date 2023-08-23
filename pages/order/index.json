@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "orderStatus":"/components/orderStatus/orderStatus"
+    "orderStatus":"/components/orderStatus/orderStatus",
+    "Tabs":"/components/Tabs/Tabs"
   },
   "navigationBarTitleText": "Test小程序-订单查询"
 }
