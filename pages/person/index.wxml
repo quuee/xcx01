@@ -9,7 +9,7 @@
   </view>
 
   <view class="menu">
-    <!--订单-->
+    <!--订单 订单状态不太对，仅展示-->
     <view class="order_wrap">
       <view class="order_tip">我的订单</view>
       <view class="order_list">
@@ -25,6 +25,10 @@
           <view class="icon-shouhouwuyou iconfont"></view>
           <view class="order_title">售后</view>
         </navigator>
+        <navigator url="/pages/order/index?type=4">
+          <view class="icon-tousuyangshi2 iconfont"></view>
+          <view class="order_title">待评价</view>
+        </navigator>
         <navigator url="/pages/order/index?type=0">
           <view class="icon-biaodan iconfont"></view>
           <view class="order_title">全部订单</view>
@@ -36,6 +40,20 @@
     <view class="receive_address_manager">
       <view>收货地址管理</view>
       <view class="icon-jiantouyou"></view>
+    </view>
+
+    <!--app信息-->
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text>联系客服</text>
+        <text>400-123-543231</text>
+      </view>
+      <view class="app_info_item">
+        <button open-type="feedback" class="feedback">意见反馈</button>
+      </view>
+      <view class="app_info_item">
+        <text>关于我们</text>
+      </view>
     </view>
   </view>
 

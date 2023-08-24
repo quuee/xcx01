@@ -30,11 +30,7 @@
       </view>
 
       <!--第四行 订单操作 按钮 。封装成组件，根据不同订单状态展示不同按钮 TODO-->
-      <view class="order_fourth_row">
-        <button class="order_fourth_row_button" type="default" size="mini" plain>申请退款</button>
-        <button class="order_fourth_row_button" type="default" size="mini" plain>查看物流</button>
-        <button class="order_fourth_row_button" type="warn" size="mini" plain>确认收货</button>
-      </view>
+      <orderButton orderStatus="{{order.orderStatus}}"></orderButton>
     </view>
   </view>
 </Tabs>

@@ -1,0 +1,21 @@
+<!--1待付款，2待收货，3售后-->
+<block wx:if="{{orderStatus == 1}}">
+  <view class="order_button_row">
+    <button class="order_button_row_item" type="default" size="mini" plain>取消订单</button>
+    <button class="order_button_row_item" type="warn" size="mini" plain>立即付款</button>
+  </view>
+</block>
+<block wx:if="{{orderStatus == 2}}">
+  <view class="order_button_row">
+    <button class="order_button_row_item" type="default" size="mini" plain>申请退款</button>
+    <button class="order_button_row_item" type="default" size="mini" plain>查看物流</button>
+    <button class="order_button_row_item" type="warn" size="mini" plain>确认收货</button>
+  </view>
+</block>
+<block wx:if="{{orderStatus == 3}}">
+  <view class="order_button_row">
+    <button class="order_button_row_item" type="default" size="mini" plain>联系客服</button>
+    <button class="order_button_row_item" type="default" size="mini" plain>再次购买</button>
+    <button class="order_button_row_item" type="warn" size="mini" plain>评价返现</button>
+  </view>
+</block>

@@ -27,6 +27,11 @@ Page({
         typeName: "售后",
         isActive: false
       },
+      {
+        type: 4,
+        typeName: "待评价",
+        isActive: false
+      },
     ],
     orderList: []
   },

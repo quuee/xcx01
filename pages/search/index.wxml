@@ -1,6 +1,6 @@
 <view class="search_row">
   <view class="search_input_row">
-    <icon type="search" size="16" />
+    <icon type="search" size="22" />
     <input type="text" model:value="{{inputSearchWord}}" placeholder="请输入关键字" bindinput="handleSearchInput" bindconfirm="handleConfirm" />
     <!--自动联想搜索词-->
     <scroll-view class="search_word_scroll_view" wx:if="{{viewShowed}}" scroll-y>
