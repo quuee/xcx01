@@ -1,42 +1,43 @@
 <view class="pay_page">
-    <!--收件地址-->
-    <view class="user_reviceAddress_info_wrap">
-        <view class="user_info">{{reviceAddress.provinceName+reviceAddress.cityName}}</view>
-        <view class="user_info user_info_detail">{{reviceAddress.countyName+reviceAddress.detailInfo}}</view>
-        <view class="user_info">{{reviceAddress.userName}},{{reviceAddress.telNumber}}</view>
+  <!--收件地址-->
+  <view class="user_reviceAddress_info_wrap">
+    <view class="user_info">{{reviceAddress.provinceName+reviceAddress.cityName}}</view>
+    <view class="user_info user_info_detail">{{reviceAddress.countyName+reviceAddress.detailInfo}}</view>
+    <view class="user_info">{{reviceAddress.userName}},{{reviceAddress.telNumber}}</view>
+  </view>
+
+  <!--商品列表-->
+  <view class="goods_list" wx:for="{{checkedGoodsList}}" wx:for-item="item" wx:key="id">
+    <image mode="widthFix" src="{{baseUrl+'/images/'+item.goodsImage}}"></image>
+    <view class="goods_text_info">
+      <view class="goods_name">{{item.goodsName}}</view>
+      <view class="goods_price_num_wrap">
+        <view class="goods_price">￥：{{item.price}}</view>
+        <view class="goods_num">数量：{{item.num}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!--订单创建信息-->
+  <view class="order_info_wrap">
+    <view class="order_info delivery_choose">
+      <picker bindchange="handleDeliveryPickerChange" value="{{deliveryIndex}}" range="{{deliveryPickerList}}">
+        配送服务：{{deliveryPickerList[deliveryIndex]}}
+      </picker>
+      <view class="icon-jiantouyou"></view>
+    </view>
+    <view class="order_info order_remark">
+      <view>订单备注：</view>
+      <input value="" type="text" placeholder="备注信息"></input>
     </view>
 
-    <!--商品列表-->
-    <view class="goods_list" wx:for="{{checkedGoodsList}}" wx:for-item="item" wx:key="id">
-        <image mode="widthFix" src="{{baseUrl+'/images/'+item.goodsImage}}"></image>
-        <view class="goods_text_info">
-            <view class="goods_name">{{item.goodsName}}</view>
-            <view class="goods_price_num_wrap">
-                <view class="goods_price">￥：{{item.price}}</view>
-                <view class="goods_num">数量：{{item.num}}</view>
-            </view>
-        </view>
-    </view>
+    <view class="order_info pay_way">支付方式：支付宝</view>
+  </view>
 
-    <!--订单创建信息-->
-    <view class="order_info_wrap">
-        <view class="order_info delivery_choose">
-            <picker bindchange="handleDeliveryPickerChange" value="{{deliveryIndex}}" range="{{deliveryPickerList}}">
-                配送服务：{{deliveryPickerList[deliveryIndex]}}
-            </picker>
-        </view>
-        <view class="order_info order_remark">
-            <view>订单备注：</view>
-            <input value="" type="text" placeholder="备注信息"></input>
-        </view>
-
-        <view class="order_info pay_way">支付方式：支付宝</view>
-    </view>
-
-    <!--底部提交按钮-->
-    <view class="bottom_pay_btn_wrap">
-        <view class="sum_money">合计：{{sumMoney}}</view>
-        <button size="mini" type="primary" bind:tap="handleCreateOrder">提交订单</button>
-    </view>
+  <!--底部提交按钮-->
+  <view class="bottom_pay_btn_wrap">
+    <view class="sum_money">合计：{{sumMoney}}</view>
+    <button size="mini" type="primary" bind:tap="handleCreateOrder">提交订单</button>
+  </view>
 
 </view>

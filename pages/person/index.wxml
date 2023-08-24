@@ -14,19 +14,19 @@
       <view class="order_tip">我的订单</view>
       <view class="order_list">
         <navigator url="/pages/order/index?type=1">
-          <view class="iconfont icon-daifukuan"></view>
+          <view class="icon-daifukuan iconfont"></view>
           <view class="order_title">待付款</view>
         </navigator>
         <navigator url="/pages/order/index?type=2">
-          <view class="iconfont icon-daishouhuo"></view>
+          <view class="icon-daishouhuo iconfont"></view>
           <view class="order_title">待收货</view>
         </navigator>
         <navigator url="/pages/order/index?type=3">
-          <view class="iconfont icon-shouhou1"></view>
+          <view class="icon-shouhouwuyou iconfont"></view>
           <view class="order_title">售后</view>
         </navigator>
         <navigator url="/pages/order/index?type=0">
-          <view class="iconfont icon-hetong"></view>
+          <view class="icon-biaodan iconfont"></view>
           <view class="order_title">全部订单</view>
         </navigator>
       </view>
@@ -35,7 +35,7 @@
     <!--收货地址管理-->
     <view class="receive_address_manager">
       <view>收货地址管理</view>
-      <view class="icon-dayuhao"></view>
+      <view class="icon-jiantouyou"></view>
     </view>
   </view>
 

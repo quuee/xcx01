@@ -6,38 +6,5 @@
     "urlCheck": false
   },
   "libVersion": "3.0.0",
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "订单查询",
-          "pathName": "pages/order/index",
-          "query": "page=1",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "分类",
-          "pathName": "pages/category/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "详情",
-          "pathName": "pages/goods_indroduce/index",
-          "query": "goodsId=1",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "购物车",
-          "pathName": "pages/shop_cart/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  }
+  "condition": {}
 }

@@ -76,8 +76,8 @@ Page({
       let lastCart = cart.filter(g=>!g.checked)
       wx.setStorageSync(constCart, lastCart)
       //跳转到订单页
-      wx.navigateTo({
-        url: '/pages/order/index',
+      wx.redirectTo({
+        url: '/pages/order/index?type=0',
       })
     }else{
       wx.showToast({

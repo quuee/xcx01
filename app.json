@@ -30,17 +30,20 @@
       {
         "pagePath": "pages/category/index",
         "text": "分类",
-        "iconPath": "assets/icon/category.png"
+        "iconPath": "assets/icon/category.png",
+        "selectedIconPath": "assets/icon/selected_category.png"
       },
       {
         "pagePath": "pages/shop_cart/index",
         "text": "购物车",
-        "iconPath": "assets/icon/shop_car.png"
+        "iconPath": "assets/icon/gouwuche.png",
+        "selectedIconPath": "assets/icon/selected_gouwuche.png"
       },
       {
         "pagePath": "pages/person/index",
         "text": "我的",
-        "iconPath": "assets/icon/person.png"
+        "iconPath": "assets/icon/person.png",
+        "selectedIconPath": "assets/icon/selected_person.png"
       }
     ]
   },
