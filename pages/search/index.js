@@ -97,7 +97,7 @@ Page({
       .catch(err => [null, err])
     // console.log(result)
     this.setData({
-      goodsList: result.data.data.records
+      goodsList: result.data.data
     })
   },
 

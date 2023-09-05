@@ -1,3 +1,4 @@
+# 小程序商城demo
 
 ### 小程序奇怪的问题
 margin: 0rpx 2rpx 0rpx 2rpx; //小程序button中的默认样式中的margin-left: auto;margin-right: auto;所引起的 覆盖掉就好了
